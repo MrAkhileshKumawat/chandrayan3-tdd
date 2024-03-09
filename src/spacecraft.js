@@ -16,6 +16,9 @@ function spacecraft(startingPosition, initialDirection, commands){
             case 'l':
                 turnLeft();
                 break;
+            case 'u':
+                turnUp();
+                break;
             default:
                 break;
         }
@@ -123,6 +126,19 @@ function spacecraft(startingPosition, initialDirection, commands){
                 break;
             case 'D':
                 direction = lastHorizontalDirection === 'E' ? 'S' : lastHorizontalDirection === 'W' ? 'N' : lastHorizontalDirection === 'N' ? 'E' : 'W';
+                break;
+            default:
+                break;
+        }
+    }
+
+    function turnUp() {
+        switch (direction) {
+            case 'N':
+            case 'S':
+            case 'E':
+            case 'W':
+                direction = 'U';
                 break;
             default:
                 break;
