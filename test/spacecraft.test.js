@@ -55,4 +55,13 @@ describe('spacecraft', () => {
         expect(position).toEqual([0, 0, 0]);
         expect(direction).toEqual('D');
     });
+
+    test('should move the spacecraft through a sequence of commands', () => {
+        const startingPosition = [0, 0, 0];
+        const initialDirection = 'N';
+        const commands = ['f', 'r', 'u', 'b', 'l'];
+        const { position, direction } = spacecraft(startingPosition, initialDirection, commands);
+        expect(position).toEqual([0, 1, -1]);
+        expect(direction).toEqual('N');
+    });
 });
