@@ -46,4 +46,13 @@ describe('spacecraft', () => {
         expect(direction).toEqual('U');
     });
 
+    test('should turn the spacecraft down', () => {
+        const startingPosition = [0, 0, 0];
+        const initialDirection = 'N';
+        const commands = ['d'];
+        const { position, direction } = spacecraft(startingPosition, initialDirection, commands);
+        console.log(position,direction)
+        expect(position).toEqual([0, 0, 0]);
+        expect(direction).toEqual('D');
+    });
 });
