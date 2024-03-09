@@ -10,6 +10,9 @@ function spacecraft(startingPosition, initialDirection, commands){
             case 'b':
                 moveBackward();
                 break;
+            case 'r':
+                turnRight();
+                break;
             default:
                 break;
         }
@@ -59,6 +62,35 @@ function spacecraft(startingPosition, initialDirection, commands){
                 break;
             case 'D':
                 z++;
+                break;
+            default:
+                break;
+        }
+    }
+
+    function turnRight() {
+        switch (direction) {
+            case 'N':
+                direction = 'E';
+                lastHorizontalDirection = 'E';
+                break;
+            case 'S':
+                direction = 'W';
+                lastHorizontalDirection = 'W';
+                break;
+            case 'E':
+                direction = 'S';
+                lastHorizontalDirection = 'S';
+                break;
+            case 'W':
+                direction = 'N';
+                lastHorizontalDirection = 'N';
+                break;
+            case 'U':
+                direction = lastHorizontalDirection === 'E' ? 'S' : lastHorizontalDirection === 'W' ? 'N' : lastHorizontalDirection === 'N' ? 'E' : 'W';
+                break;
+            case 'D':
+                direction = lastHorizontalDirection === 'E' ? 'N' : lastHorizontalDirection === 'W' ? 'S' : lastHorizontalDirection === 'N' ? 'W' : 'E';
                 break;
             default:
                 break;
